@@ -1,9 +1,15 @@
 <div class="hero-unit">
   <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
+
+  <p>Here's what you want to do.</p>
   <ul>
-      <li ng-repeat="task in tasks">{{task}}</li>
+      <li ng-repeat="task in tasks | filter:!isDone">{{task.what}}</li>
   </ul>
-  <p>installed.</p>
+
+  <p>Here's what is done.</p>
+  <ul>
+      <li ng-repeat="task in tasks | filter:isDone">{{task.what}}</li>
+  </ul>
+
   <h3>Enjoy coding!!! - Yeoman</h3>
 </div>

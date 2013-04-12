@@ -9,8 +9,15 @@ angular.module('tmtrkrApp')
       'Karma'
     ];
 */
+      $scope.isDone = function (item) {
+	  return item.done;
+      };
+
       $scope.tasks = [
-	  {what:"Create scaffolding using yo", done:false, active:true}, 
+	  {what:"Create scaffolding using yo", done:true, active:true}, 
+	  {what:"add ability to start work", done:false, active:true}, 
+	  {what:"add ability to complete task", done:false, active:true}, 
+	  {what:"add done filter", done:true, active:true}, 
 	  {what:"Add creating new ones", done:false, active:false}, 
 	  {what:"Add creating new ones (multiple views + routing)", done:false, active:false}, 
 	  {what:"Add datestamp", done:false, active:false}, 
@@ -19,4 +26,7 @@ angular.module('tmtrkrApp')
 	  {what:"Add categories", done:false, active:false}, 
 	  {what:"Add timetracking", done:false, active:false}, 
       ];
+
+      $scope.complete = function() {
+      }
   });
