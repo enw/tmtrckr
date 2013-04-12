@@ -27,6 +27,15 @@ angular.module('tmtrkrApp')
 	  {what:"Add timetracking", done:false, active:false}, 
       ];
 
-      $scope.complete = function() {
+      $scope.start = function (item) {
+	  item.active = true;
+      }
+
+      $scope.stop = function (item) {
+	  item.active = false;
+      }
+
+      $scope.complete = function(item) {
+	  item.done = true;
       }
   });

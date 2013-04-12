@@ -1,9 +1,13 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
+  <h1>Tsk Trckr!!</h1>
 
   <p>Here's what you want to do.</p>
   <ul>
-      <li ng-repeat="task in tasks | filter:!isDone">{{task.what}}</li>
+      <li ng-repeat="task in tasks | filter:!isDone">{{task.what}}
+      <button ng-disabled="task.active" ng-click="start(task)">start</button>
+      <button ng-disabled="!task.active" ng-click="stop(task)">stop</button>
+      <button ng-click="complete(task)">complete</button>
+      </li>
   </ul>
 
   <p>Here's what is done.</p>
@@ -11,5 +15,4 @@
       <li ng-repeat="task in tasks | filter:isDone">{{task.what}}</li>
   </ul>
 
-  <h3>Enjoy coding!!! - Yeoman</h3>
 </div>
