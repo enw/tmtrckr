@@ -15,8 +15,8 @@ angular.module('tmtrkrApp')
 
       $scope.tasks = [
 	  {what:"Create scaffolding using yo", done:true, active:true}, 
-	  {what:"add ability to start work", done:false, active:true}, 
-	  {what:"add ability to complete task", done:false, active:true}, 
+	  {what:"add ability to start work", done:true, active:true}, 
+	  {what:"add ability to complete task", done:true, active:true}, 
 	  {what:"add done filter", done:true, active:true}, 
 	  {what:"Add creating new ones", done:false, active:false}, 
 	  {what:"Add creating new ones (multiple views + routing)", done:false, active:false}, 
