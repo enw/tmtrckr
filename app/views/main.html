@@ -1,6 +1,12 @@
 <div class="hero-unit">
   <h1>Tsk Trckr!!</h1>
 
+  new task:
+  <input type="text"
+       ng-model="input"
+	 ></input>
+  <button ng-click="add(input)">add</button>
+
   <p>Here's what you want to do.</p>
   <ul>
       <li ng-repeat="task in tasks | filter:!isDone">{{task.what}}
