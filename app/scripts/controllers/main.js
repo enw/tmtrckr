@@ -41,3 +41,4 @@ angular.module('tmtrkrApp')
         $scope.tasks.push({what:what,done:false, active:false});
       };
     });
+

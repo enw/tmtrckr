@@ -7,6 +7,10 @@ angular.module('tmtrkrApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/tsk', {
+        templateUrl: 'views/tsk.html',
+        controller: 'TskCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
