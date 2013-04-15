@@ -3,9 +3,34 @@
 angular.module('tmtrkrApp')
   .controller('MainCtrl', function ($scope) {
       // FILTER
+      $scope.isTodo = function (item) {
+          return !item.done;
+        };
+
       $scope.isDone = function (item) {
           return item.done;
         };
+
+      // HELPERS
+      $scope.todoCount = function () {
+	  var tasks = $scope.tasks;
+	  var count=0;
+	  for (var i=0;i<tasks.length;i++) {
+	      var task = tasks[i];
+	      if ($scope.isTodo(task)) count++;
+	  }
+	  return count;
+      };
+
+      $scope.doneCount = function () {
+	  var tasks = $scope.tasks;
+	  var count=0;
+	  for (var i=0;i<tasks.length;i++) {
+	      var task = tasks[i];
+	      if ($scope.isDone(task)) count++;
+	  }
+	  return count;
+      };
 
       // MODEL
       $scope.tasks = [

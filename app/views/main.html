@@ -7,16 +7,16 @@
 	 ></input>
   <button ng-click="add(input)">add</button>
 
-  <p>Here's what you want to do.</p>
+  <p>Here's are the {{todoCount()}} things that need to be done.</p>
   <ul>
-      <li ng-repeat="task in tasks | filter:!isDone">{{task.what}}
+      <li ng-repeat="task in tasks | filter:isTodo">{{task.what}}
       <button ng-disabled="task.active" ng-click="start(task)">start</button>
       <button ng-disabled="!task.active" ng-click="stop(task)">stop</button>
       <button ng-click="complete(task)">complete</button>
       </li>
   </ul>
 
-  <p>Here's what is done.</p>
+  <p>Here's are the {{doneCount()}} things that you already did.</p>
   <ul>
       <li ng-repeat="task in tasks | filter:isDone">{{task.what}}</li>
   </ul>
