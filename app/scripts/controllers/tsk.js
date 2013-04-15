@@ -2,8 +2,6 @@
 // for new tasks
 angular.module('tmtrkrApp')
   .controller('TskCtrl', function ($scope, $routeParams) {
-      console.log ("TSK CNTRL", $routeParams);
-
       // MODEL
       $scope.task = {what:"", done:false, active:false};
 
@@ -19,9 +17,12 @@ angular.module('tmtrkrApp')
 
       // ACTIONS
       
-      // copied from main.js.... should be put in a service?
-      $scope.add = function () {
+      // based on the add() function in main.js but also changes location url
+      // ??? what is the best practice for this type of thing?
+      // ??? to use $location service?
+      $scope.add = function ($slope, $location) {
         tasks.push($scope.task);
+	window.location = "#/"; // go back to home screen. better way to do this?
 	updateLocalStorage();
       };
       }
