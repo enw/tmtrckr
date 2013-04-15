@@ -32,8 +32,19 @@ angular.module('tmtrkrApp')
 	  return count;
       };
 
-      // MODEL
-      $scope.tasks = [
+      // LOCALSTORAGE
+      // set value based on localStorage
+      if (localStorage.tasks == undefined) {
+	  localStorage.tasks = JSON.stringify([]);
+      };
+      var tasks = JSON.parse(localStorage.tasks);
+      function updateLocalStorage () {
+	  localStorage.tasks = JSON.stringify(tasks);
+      }
+      
+      // bootstrap localstorage.tasks during development....
+      /*
+	tasks = [
         {what:'Create scaffolding using yo', done:true, active:true},
         {what:'add ability to start work', done:true, active:true},
         {what:'add ability to complete task', done:true, active:true},
@@ -46,24 +57,32 @@ angular.module('tmtrkrApp')
         {what:'Add categories', done:false, active:false},
         {what:'Add timetracking', done:false, active:false},
       ];
+      */
+
+      // MODEL
+      $scope.tasks = tasks;
 
       // EVENTS AND HELPERS
       $scope.start = function (item) {
         item.active = true;
+	updateLocalStorage(); 
       };
 
       $scope.stop = function (item) {
         item.active = false;
+	updateLocalStorage();
       };
 
       $scope.complete = function(item) {
         item.done = true;
+	updateLocalStorage();
       };
 
       $scope.input = 'eh?';
       $scope.add = function (what) {
         console.log('ADD', what);
         $scope.tasks.push({what:what,done:false, active:false});
+	updateLocalStorage();
       };
     });
 

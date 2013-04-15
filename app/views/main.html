@@ -2,17 +2,14 @@
   <h1>Tm Trckr!!</h1>
 
   <a href="#/tsk">new task</a>
-  <input type="text"
-       ng-model="input"
-	 ></input>
-  <button ng-click="add(input)">add</button>
 
   <p>Here's are the {{todoCount()}} things that need to be done.</p>
   <ul>
-      <li ng-repeat="task in tasks | filter:isTodo">{{task.what}}
-      <button ng-disabled="task.active" ng-click="start(task)">start</button>
-      <button ng-disabled="!task.active" ng-click="stop(task)">stop</button>
-      <button ng-click="complete(task)">complete</button>
+      <li ng-repeat="task in tasks | filter:isTodo">
+	<button ng-disabled="task.active" ng-click="start(task)">start</button>
+	<button ng-disabled="!task.active" ng-click="stop(task)">stop</button>
+	<button ng-click="complete(task)">complete</button>
+	{{task.what}}
       </li>
   </ul>
 
