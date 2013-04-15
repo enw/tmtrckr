@@ -78,9 +78,26 @@ angular.module('tmtrkrApp')
 	updateLocalStorage();
       };
 
-      $scope.input = 'eh?';
+      $scope.nuke = function (idx) {
+        console.log("nuke", idx);
+
+        // this is wrong because the list is filtered!
+	// $scope.tasks.splice(idx,idx);
+
+	// this feels clumsy
+	var indexFound;
+	var mainListIndex=0;
+        while (!indexFound) {
+	    var testItem = $scope.tasks[mainListIndex];
+	    if (testItem.active) indexFound=true;
+	    mainListIndex++;
+	}
+        $scope.tasks.splice(mainListIndex, mainListIndex);
+
+	updateLocalStorage(); 
+      };
+
       $scope.add = function (what) {
-        console.log('ADD', what);
         $scope.tasks.push({what:what,done:false, active:false});
 	updateLocalStorage();
       };

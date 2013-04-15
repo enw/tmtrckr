@@ -9,6 +9,7 @@
 	<button ng-disabled="task.active" ng-click="start(task)">start</button>
 	<button ng-disabled="!task.active" ng-click="stop(task)">stop</button>
 	<button ng-click="complete(task)">complete</button>
+	<button ng-click="nuke($index)">delete {{$index}}</button>
 	{{task.what}}
       </li>
   </ul>
