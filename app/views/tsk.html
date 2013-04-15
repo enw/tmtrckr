@@ -1,5 +1,9 @@
 <div class="hero-unit">
   <a href="#/"><h1>Tsk!!</h1></a>
   
-  todo: put one task here
+    <form name="myForm" ng-controller="TskCtrl">
+      task: <input type="text" name="input" ng-model="task.what"
+		   required>
+      <button ng-disabled="!myForm.input.$valid" ng-click="add(task)">add</button>
+     </form>
 </div>
