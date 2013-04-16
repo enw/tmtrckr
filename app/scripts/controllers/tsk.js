@@ -1,30 +1,33 @@
 'use strict';
 // for new tasks
 angular.module('tmtrkrApp')
-  .controller('TskCtrl', function ($scope, $routeParams) {
+  .controller('TskCtrl', function ($scope) {
       // MODEL
-      $scope.task = {what:"", done:false, active:false};
+      $scope.task = {what:'', done:false, active:false};
 
       // LOCALSTORAGE
       // set value based on localStorage
-      if (localStorage.tasks == undefined) {
-	  localStorage.tasks = JSON.stringify([]);
-      };
-      var tasks = JSON.parse(localStorage.tasks);
-      function updateLocalStorage () {
-	  localStorage.tasks = JSON.stringify(tasks);
+      if (localStorage.tasks === undefined) {
+        localStorage.tasks = JSON.stringify([]);
       }
 
+      // initialize tasks from localStorage
+      var tasks = JSON.parse(localStorage.tasks);
+
+      // push changes back into storage
+      function updateLocalStorage () {
+          localStorage.tasks = JSON.stringify(tasks);
+        }
+
       // ACTIONS
-      
       // based on the add() function in main.js but also changes location url
       // ??? what is the best practice for this type of thing?
       // ??? to use $location service?
-      $scope.add = function ($slope, $location) {
+      $scope.add = function () {
         tasks.push($scope.task);
-	window.location = "#/"; // go back to home screen. better way to do this?
-	updateLocalStorage();
+        window.location = '#/'; // go back to home screen. better way to do this?
+        updateLocalStorage();
       };
-      }
+    }
 );
 
