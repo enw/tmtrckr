@@ -24,6 +24,7 @@ angular.module('tmtrkrApp')
       // ??? what is the best practice for this type of thing?
       // ??? to use $location service?
       $scope.add = function () {
+        $scope.task.id=Math.random();
         tasks.push($scope.task);
         window.location = '#/'; // go back to home screen. better way to do this?
         updateLocalStorage();
